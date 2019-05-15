@@ -21,7 +21,7 @@
 *   alert(map.isEmpty()); 
 */  
   
-var HashMap =  function () {
+export const HashMap =  function () {
   var length = 0
   var obj = new Object()
 
@@ -84,5 +84,3 @@ var HashMap =  function () {
     obj = new Object()
   }
 }
-
-module.exports = HashMap

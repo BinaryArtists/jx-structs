@@ -1,0 +1,32 @@
+{
+  "name": "jx-structs",
+  "version": "0.1.0",
+  "description": "Structures of javascript",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && NODE_ENV=production gulp build --gulpfile scripts/compiler.js",
+    "pub": "npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BinaryArtists/jx-structs.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.3",
+    "gulp": "^4.0.1",
+    "gulp-babel": "^8.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "fallenink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BinaryArtists/jx-structs/issues"
+  },
+  "homepage": "https://github.com/BinaryArtists/jx-structs#readme"
+}
