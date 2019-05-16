@@ -20,6 +20,18 @@
 *   } 
 *   alert(map.isEmpty()); 
 */  
+
+export function hashFunc(str, max) {
+  // 1.初始化hashCode的值
+  var hashCode = 0
+  // 2.霍纳算法, 来计算hashCode的数值
+  for (var i = 0; i < str.length; i++) {
+      hashCode = 37 * hashCode + str.charCodeAt(i)
+  }
+  // 3.取模运算
+  hashCode = hashCode % max
+  return hashCode
+}
   
 export const HashMap =  function () {
   var length = 0

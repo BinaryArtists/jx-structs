@@ -47,12 +47,12 @@ export const ArrayUsage = [
 //
 //    nums1.eve
     // 定义数组
-    var names = ["abc", "cb", "mba", "dna"]
+    'var names = ["abc", "cb", "mba", "dna"]',
     // 在names中所有的元素后面拼接-abc
-    var newNames = names.map(function (t) {
-        return t + "-abc"
-    })
-    alert(newNames)
+    'var newNames = names.map(function (t) { \
+        return t + "-abc" \
+    })',
+    
 //    // 获取names中所有包含'a'字符的元素
 //    var newNames = names.filter(function (t) {
 //        return t.indexOf("a") != -1
@@ -75,7 +75,7 @@ export const ArrayUsage = [
 //    alert(flag)
 
 // 1.定义数组
-var numbers = [1, 2, 3, 4]
+'var numbers = [1, 2, 3, 4]',
 // 2.for实现累加
 //    var total = 0
 //    for (var i = 0; i < numbers.length; i++) {
@@ -89,8 +89,7 @@ var numbers = [1, 2, 3, 4]
 //    })
 //    alert(total)
 // 4.使用reduce方法
-var total = numbers.reduce(function (pre, cur) {
-    return pre + cur
-})
-alert(total)
+'var total = numbers.reduce(function (pre, cur) { \
+    return pre + cur \
+})'
 ]
