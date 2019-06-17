@@ -1,7 +1,10 @@
+import { Dictionary } from './dictionary';
+import { Queue } from './queue';
+
 export function Graph() {
   // 属性
   this.vertexes = [] // 存储顶点
-  this.adjList = new Dictionay() // 存储边
+  this.adjList = new Dictionary() // 存储边
   // 添加方法
   Graph.prototype.addVertex = function (v) {
       this.vertexes.push(v)

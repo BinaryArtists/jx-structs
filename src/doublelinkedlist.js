@@ -1,4 +1,4 @@
-export function DoublyLinkedList() {
+export function DoubleLinkedList() {
   // 创建节点构造函数
   function Node(element) {
       this.element = element
@@ -11,7 +11,7 @@ export function DoublyLinkedList() {
   this.tail = null // 新添加的
   // 定义相关操作方法
   // 在尾部追加数据
-  DoublyLinkedList.prototype.append = function (element) {
+  DoubleLinkedList.prototype.append = function (element) {
       // 1.根据元素创建节点
       var newNode = new Node(element)
       // 2.判断列表是否为空列表
@@ -27,7 +27,7 @@ export function DoublyLinkedList() {
       this.length++
   }
   // 在任意位置插入数据
-  DoublyLinkedList.prototype.insert = function (position, element) {
+  DoubleLinkedList.prototype.insert = function (position, element) {
       // 1.判断越界的问题
       if (position < 0 || position > this.length) return false
       // 2.创建新的节点
@@ -69,7 +69,7 @@ export function DoublyLinkedList() {
       return true
   }
   // 根据位置删除对应的元素
-  DoublyLinkedList.prototype.removeAt = function (position) {
+  DoubleLinkedList.prototype.removeAt = function (position) {
       // 1.判断越界的问题
       if (position < 0 || position >= this.length) return null
       // 2.判断移除的位置
@@ -101,7 +101,7 @@ export function DoublyLinkedList() {
       return current.element
   }
   // 根据元素获取在链表中的位置
-  DoublyLinkedList.prototype.indexOf = function (element) {
+  DoubleLinkedList.prototype.indexOf = function (element) {
       // 1.定义变量保存信息
       var current = this.head
       var index = 0
@@ -117,29 +117,29 @@ export function DoublyLinkedList() {
       return -1
   }
   // 根据元素删除
-  DoublyLinkedList.prototype.remove = function (element) {
+  DoubleLinkedList.prototype.remove = function (element) {
       var index = this.indexOf(element)
       return this.removeAt(index)
   }
   // 判断是否为空
-  DoublyLinkedList.prototype.isEmpty = function () {
+  DoubleLinkedList.prototype.isEmpty = function () {
       return this.length === 0
   }
   // 获取链表长度
-  DoublyLinkedList.prototype.size = function () {
+  DoubleLinkedList.prototype.size = function () {
       return this.length
   }
   // 获取第一个元素
-  DoublyLinkedList.prototype.getHead = function () {
+  DoubleLinkedList.prototype.getHead = function () {
       return this.head.element
   }
   // 获取最后一个元素
-  DoublyLinkedList.prototype.getTail = function () {
+  DoubleLinkedList.prototype.getTail = function () {
       return this.tail.element
   }
   // 遍历方法的实现
   // 正向遍历的方法
-  DoublyLinkedList.prototype.forwardString = function () {
+  DoubleLinkedList.prototype.forwardString = function () {
       var current = this.head
       var forwardStr = ""
       while (current) {
@@ -149,7 +149,7 @@ export function DoublyLinkedList() {
       return forwardStr.slice(1)
   }
   // 反向遍历的方法
-  DoublyLinkedList.prototype.reverseString = function () {
+  DoubleLinkedList.prototype.reverseString = function () {
       var current = this.tail
       var reverseStr = ""
       while (current) {
@@ -159,7 +159,7 @@ export function DoublyLinkedList() {
       return reverseStr.slice(1)
   }
   // 实现toString方法
-  DoublyLinkedList.prototype.toString = function () {
+  DoubleLinkedList.prototype.toString = function () {
       return this.forwardString()
   }
 }
