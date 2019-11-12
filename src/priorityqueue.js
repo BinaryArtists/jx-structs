@@ -1,4 +1,6 @@
-// 封装一个新的构造函数, 用于保存元素和元素的优先级
+/**
+ * 优先级队列
+ */
 export class QueueElement {
   constructor(element, priority) {
     this.element = element

@@ -1,18 +1,16 @@
-// 创建BinarySearchTree
+/**
+ * 
+ */
+import { BinaryTreeNode } from './binarytree';
+
 export function BinarySerachTree() {
-  // 创建节点构造函数
-  function Node(key) {
-      this.key = key
-      this.left = null
-      this.right = null
-  }
-  // 保存根的属性
   this.root = null
+
   // 二叉搜索树相关的操作方法
   // 向树中插入数据
-  BinarySerachTree.prototype.insert = function (key) {
+  BinarySerachTree.prototype.insert = function (val) {
       // 1.根据key创建对应的node
-      var newNode = new Node(key)
+      var newNode = new BinaryTreeNode(val)
       // 2.判断根节点是否有值
       if (this.root === null) {
           this.root = newNode
@@ -21,7 +19,7 @@ export function BinarySerachTree() {
       }
   }
   BinarySerachTree.prototype.insertNode = function (node, newNode) {
-      if (newNode.key < node.key) { // 1.准备向左子树插入数据
+      if (newNode.val < node.val) { // 1.准备向左子树插入数据
           if (node.left === null) { // 1.1.node的左子树上没有内容
               node.left = newNode
           } else { // 1.2.node的左子树上已经有了内容
@@ -41,41 +39,41 @@ export function BinarySerachTree() {
       while (node.left !== null) {
           node = node.left
       }
-      return node.key
+      return node.val
   }
   BinarySerachTree.prototype.max = function () {
       var node = this.root
       while (node.right !== null) {
           node = node.right
       }
-      return node.key
+      return node.val
   }
   // 搜搜特定的值
   /*
-  BinarySerachTree.prototype.search = function (key) {
-      return this.searchNode(this.root, key)
+  BinarySerachTree.prototype.search = function (val) {
+      return this.searchNode(this.root, val)
   }
-  BinarySerachTree.prototype.searchNode = function (node, key) {
+  BinarySerachTree.prototype.searchNode = function (node, val) {
       // 1.如果传入的node为null那么, 那么就退出递归
       if (node === null) {
           return false
       }
-      // 2.判断node节点的值和传入的key大小
-      if (node.key > key) { // 2.1.传入的key较小, 向左边继续查找
-          return this.searchNode(node.left, key)
-      } else if (node.key < key) { // 2.2.传入的key较大, 向右边继续查找
-          return this.searchNode(node.right, key)
-      } else { // 2.3.相同, 说明找到了key
+      // 2.判断node节点的值和传入的val大小
+      if (node.val > val) { // 2.1.传入的val较小, 向左边继续查找
+          return this.searchNode(node.left, val)
+      } else if (node.val < val) { // 2.2.传入的val较大, 向右边继续查找
+          return this.searchNode(node.right, val)
+      } else { // 2.3.相同, 说明找到了val
           return true
       }
   }
   */
-  BinarySerachTree.prototype.search = function (key) {
+  BinarySerachTree.prototype.search = function (val) {
       var node = this.root
       while (node !== null) {
-          if (node.key > key) {
+          if (node.val > val) {
               node = node.left
-          } else if (node.key < key) {
+          } else if (node.val < val) {
               node = node.right
           } else {
               return true
@@ -84,16 +82,16 @@ export function BinarySerachTree() {
       return false
   }
   // 删除节点
-  BinarySerachTree.prototype.remove = function (key) {
+  BinarySerachTree.prototype.remove = function (val) {
       // 1.获取当前的node
       var node = this.root
       var parent = null
       // 2.循环遍历node
       while (node) {
-          if (node.key > key) {
+          if (node.val > val) {
               parent = node
               node = node.left
-          } else if (node.key < key) {
+          } else if (node.val < val) {
               parent = node
               node = node.right
           } else {
@@ -102,24 +100,24 @@ export function BinarySerachTree() {
           }
       }
   }
-  BinarySerachTree.prototype.removeNode = function (node, key) {
+  BinarySerachTree.prototype.removeNode = function (node, val) {
       // 1.如果传入的node为null, 直接退出递归.
       if (node === null) return null
-      // 2.判断key和对应node.key的大小
-      if (node.key > key) {
-          node.left = this.removeNode(node.left, key)
+      // 2.判断val和对应node.val的大小
+      if (node.val > val) {
+          node.left = this.removeNode(node.left, val)
       }
   }
   // 删除结点
-  BinarySerachTree.prototype.remove = function (key) {
+  BinarySerachTree.prototype.remove = function (val) {
       // 1.定义临时保存的变量
       var current = this.root
       var parent = this.root
       var isLeftChild = true
       // 2.开始查找节点
-      while (current.key !== key) {
+      while (current.val !== val) {
           parent = current
-          if (key < current.key) {
+          if (val < current.val) {
               isLeftChild = true
               current = current.left
           } else {
@@ -199,7 +197,7 @@ export function BinarySerachTree() {
   }
   BinarySerachTree.prototype.preOrderTranversalNode = function (node, handler) {
       if (node !== null) {
-          handler(node.key)
+          handler(node.val)
           this.preOrderTranversalNode(node.left, handler)
           this.preOrderTranversalNode(node.right, handler)
       }
@@ -211,7 +209,7 @@ export function BinarySerachTree() {
   BinarySerachTree.prototype.inOrderTraversalNode = function (node, handler) {
       if (node !== null) {
           this.inOrderTraversalNode(node.left, handler)
-          handler(node.key)
+          handler(node.val)
           this.inOrderTraversalNode(node.right, handler)
       }
   }
@@ -223,7 +221,7 @@ export function BinarySerachTree() {
       if (node !== null) {
           this.postOrderTraversalNode(node.left, handler)
           this.postOrderTraversalNode(node.right, handler)
-          handler(node.key)
+          handler(node.val)
       }
   }
 }

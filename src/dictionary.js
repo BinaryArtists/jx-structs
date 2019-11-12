@@ -1,5 +1,7 @@
-// 创建字典的构造函数
-export function Dictionary() {
+/**
+ *
+ */
+export function Dictionary () {
   // 字典属性
   this.items = {}
   // 字典操作方法

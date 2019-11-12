@@ -1,6 +1,6 @@
 {
   "name": "jx-structs",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Structures of javascript",
   "main": "./dist/index.js",
   "scripts": {
